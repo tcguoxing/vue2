@@ -9,6 +9,8 @@
       <li>
         <el-button @click="showConfirmDialog">这是个elButton</el-button>
         <el-button @click="showMessage">这是个showMessage</el-button>
+        <el-button @click="changeValueFormat">这个可以更改valueFormat</el-button>
+        <el-button @click="giveTime">点击出时间</el-button>
       </li>
       <li><a href="https://github.com/vuejs/vue-cli/tree/dev/packages/%40vue/cli-plugin-eslint" target="_blank" rel="noopener">eslint</a></li>
     </ul>
@@ -18,7 +20,7 @@
       v-model="value2"
       align="right"
       type="month"
-      format="yyyy-MM"
+      :format="format"
       value-format="yyyy-MM-dd"
       placeholder="选择日期"
       :picker-options="pickerOptions">
@@ -58,7 +60,8 @@ export default {
   name: 'homePage',
   data () {
     return {
-      value2: '',
+      value2: '2021-03-05',
+      format: 'yyyy-MM-dd',
       pickerOptions: {
         disabledDate(time) {
           return time.getTime() > Date.now();
@@ -114,6 +117,14 @@ export default {
     msg: String
   },
   methods: {
+  giveTime () {
+    console.log('date picker is: ', this.value2);
+  },
+  changeValueFormat() {
+    this.format = this.format === 'yyyy-MM-dd' ? 'yyyy-MM' : 'yyyy-MM-dd'
+    console.log('this format is :', this.format)
+    // return newFormat
+  },
   showConfirmDialog(){
     let thisConfirm = this.$confirm("请问是否要确定？","注意", {
      confirmButtonText: "确定啦",
