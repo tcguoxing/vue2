@@ -3,8 +3,9 @@ import VueRouter from 'vue-router'
 Vue.use(VueRouter)
 
 const routes = [
-    { path: '/', name: 'homePage', component: () => import('cs/subPage/homePage.vue'), props: { msg: 'welcome to homePage' } },
-    { path: '/subOne', name: 'subOne', component: () => import('cs/subPage/subOne.vue'), props: { msg: 'welcome to subOne' } }
+    { path: '/', name: 'loginPage', component: () => import('@/views/main/loginPage.vue'), props: { msg: 'welcome to homePage' } },
+    { path: '/loginWelcome', name: 'loginWelcome', component: () => import('@/views/jumpPage/loginWelcomePage.vue'), },
+    { path: '/register', name: 'register', component: () => import('@/views/jumpPage/registerPage.vue'), }
 ]
 
 const router = new VueRouter({routes})
