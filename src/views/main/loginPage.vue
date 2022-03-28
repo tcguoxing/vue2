@@ -1,20 +1,25 @@
 <template>
-    <div class="mainBackgroud">
-        <div id="leftPart">
-            <img src="../../img/zhouguanyu.png" alt="从Instagram上爬取的图片">
+    <div class="mainBackground">
+        <div class="head" >
+            <span> 这就是周冠宇了</span>
         </div>
-        <div id="rightPart">
-            <div class="commonClass">
-                <span class="registerSpan">账号</span>
-                <input id="idInput" v-model="id" />
+        <div class="body" >
+            <div id="leftPart">
+                <img src="../../img/zhouguanyu.png" alt="从Instagram上爬取的图片">
             </div>
-            <div class="commonClass">
-                <span class="registerSpan">密码</span>
-                <input id="password" v-model="password" />
-            </div>
-            <div class="commonClass">
-                <button @click="login">登录</button>
-                <button @click="register">注册</button>
+            <div id="rightPart">
+                <div class="commonClass">
+                    <span class="registerSpan">账号</span>
+                    <input id="idInput" v-model="id" />
+                </div>
+                <div class="commonClass">
+                    <span class="registerSpan">密码</span>
+                    <input id="password" v-model="password" />
+                </div>
+                <div class="commonClass">
+                    <button @click="login">登录</button>
+                    <button @click="register">注册</button>
+                </div>
             </div>
         </div>
     </div>
@@ -48,22 +53,32 @@ export default {
 }
 </script>
 <style lang="less" scoped>
-.mainBackground {
-    height: 100%;
+.body {
     width: 100%;
-    // background: lightgray;
-    background: blue !important;
-    display: inline-block;
+    height: 100%;
+    line-height: 100%;
+    background: beige !important;
+    display: inline-flex;
     flex-direction: row;
-    // line-height: 60%;
-    align-items:center;
+    align-items: center;
     justify-content: center;
+}
+.head{
+    width: auto;
+    display: flex;
+    justify-content: center;
+    margin: 0 2vw;
+    span {
+        font-size: xx-large;
+        font-weight: 700;
+        margin: 2vw 0;
+    }
 }
 #leftPart {
     display: inline-block;
-    margin-left: 20% !important;
+    margin-right: 5%;
     width: 25%;
-    height: 60%;
+    height: 100%;
     img {
         border: 2px solid lightgrey;
         border-radius: 10px;
@@ -75,16 +90,16 @@ export default {
     display: inline-block;
     flex-direction: column;
     justify-content: space-around;
-    margin-right: 20% !important;
+    margin-left: 5%;
     width: 25%;
     height: 60%;
-    line-height: 60% !important;
     background: gray;
-    #commonClass {
+    .commonClass {
         padding: 5px 20px;
         display: flex;
         flex-direction: row;
-        justify-content: space-around;
+        justify-content: center;
+        align-items: center;
         .registerSpan {
             width:30%;
             display: inline-flex;
@@ -95,7 +110,8 @@ export default {
         }
         button {
             width: 30%;
-            height: 10px;
+            height: 10%;
+            margin: 0 1vw;
         }
     }
 }
