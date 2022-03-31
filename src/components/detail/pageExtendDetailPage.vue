@@ -2,6 +2,8 @@
     <div>
         <detailPage imgSrc="../../imgs/zhouguanyu2.png" imgAlt="这是周冠宇2图片" />
         <extendComponent imgSrc="../../imgs/zhouguanyu3.png" imgAlt="this is zhou guanyu 3 png" />
+        <span >{{'从基类获得的信息是：' + info}}</span>
+        <input v-model="info"  />
     </div>
 </template>
 <script>
@@ -10,25 +12,25 @@ function makeHappy() {
     alert('yes, im happy', arguments)
     console.log('yes, im happy', arguments[0])
 }
-var extendComponent = {
-        name: 'extendComponent',
-        extends: detailPage,
-        methods: {
-            showMe(){
-                console.log('this extendComponent: ', this);
-                console.log('this detailPageInfo: ', this.detailPageInfo);
-                extendPage.methods.pleaseGiveMeInfoFromThis(this.detailPageInfo)
-                makeHappy(this.detailPageInfo)
-            }
+const extendComponent = {
+    name: 'extendComponent',
+    extends: detailPage,
+    methods: {
+        showMe(){
+            console.log('this extendComponent: ', this);
+            console.log('this detailPageInfo: ', this.detailPageInfo);
+            extendPage.methods.pleaseGiveMeInfoFromThis(extendPage, this.detailPageInfo)
+            // makeHappy(this.detailPageInfo)
         }
     }
+}
 const extendPage = {
     extends: detailPage,
     name: 'extendPage',
     el: 'extendEl',
     data () {
         return {
-            
+            info: '我是继承的'
         }
     },
     components: {
@@ -39,8 +41,10 @@ const extendPage = {
         
     },
     methods: {
-        pleaseGiveMeInfoFromThis(info){
-            console.log('啊哈，我收到基类传来的信息了：', info)
+        pleaseGiveMeInfoFromThis(zis, inf){
+            console.log('啊哈，我收到基类传来的信息了：', inf)
+            console.log('现在的this是：', zis);
+            zis.info = inf
         }
     }
 }
