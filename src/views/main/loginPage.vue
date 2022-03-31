@@ -5,7 +5,7 @@
         </div>
         <div class="body" >
             <div id="leftPart">
-                <img src="../../img/zhouguanyu.png" alt="从Instagram上爬取的图片">
+                <img src="../../imgs/zhouguanyu.png" alt="从Instagram上爬取的图片">
             </div>
             <div id="rightPart">
                 <div class="commonClass">

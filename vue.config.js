@@ -10,7 +10,8 @@ module.exports = defineConfig({
             common:"@/common",
             cs:"@/components",
             network:"@/network",
-            views:"@/views"
+            views:"@/views",
+            img:"@/imgs"
         }
     }
   }
