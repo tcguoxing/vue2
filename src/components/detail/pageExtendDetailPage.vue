@@ -8,6 +8,7 @@
 </template>
 <script>
 import detailPage from './detailPage.vue' 
+import CommonTools from '@/static/commonTools.js'
 function makeHappy() {
     alert('yes, im happy', arguments)
     console.log('yes, im happy', arguments[0])
@@ -16,12 +17,18 @@ const extendComponent = {
     name: 'extendComponent',
     extends: detailPage,
     methods: {
-        showMe(){
-            console.log('this extendComponent: ', this);
-            console.log('this detailPageInfo: ', this.detailPageInfo);
+        showThisInfo(data) {
+            // alert('this img alt is: ' + data + '加新的')
+            console.log('CommonTools: ', CommonTools.deepCopy('this info'));
+            // let copy = CommonTools.deepCopy(this)
             extendPage.methods.pleaseGiveMeInfoFromThis(extendPage, this.detailPageInfo)
-            // makeHappy(this.detailPageInfo)
-        }
+        },
+        // showMe(){
+        //     console.log('this extendComponent: ', this);
+        //     console.log('this detailPageInfo: ', this.detailPageInfo);
+        //     extendPage.methods.pleaseGiveMeInfoFromThis(extendPage, this.detailPageInfo)
+        //     // makeHappy(this.detailPageInfo)
+        // }
     }
 }
 const extendPage = {
@@ -45,6 +52,10 @@ const extendPage = {
             console.log('啊哈，我收到基类传来的信息了：', inf)
             console.log('现在的this是：', zis);
             zis.info = inf
+            this.LogInfo(inf)
+        },
+        LogInfo(data) {
+            alert('this new info is, 我是从这传来的: ' + data);
         }
     }
 }

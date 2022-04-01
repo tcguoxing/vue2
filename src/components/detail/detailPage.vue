@@ -19,16 +19,22 @@ export default {
     },
     data() {
         return {
-            detailPageInfo: 'this info from detailPage'
+            detailPageInfo: 'this info from detailPage',
+            detailInfo: 'detailInfo'
         }
     },
     methods: {
         showMe() {
-            alert('this img alt is: ', this.imgAlt)
+            this.showThisInfo(this.detailInfo)
+        },
+        showThisInfo(data) {
+            debugger
+            alert('this img alt is: ' + data)
         },
         showMe2() {
             console.log('this detailPage Component:', this);
         }
+
     }
 }
 </script>
