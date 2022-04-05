@@ -73,4 +73,7 @@ div {
         height: 60vw;
     }
 }
+// is(button, img) :hover {
+//     border: 2px solid lightcoral;
+// }
 </style>

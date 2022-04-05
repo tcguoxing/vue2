@@ -55,4 +55,8 @@ div {
         margin: 0.5vh;
     }
 }
+:is(button, img):hover {
+    font-size: xx-large;
+    cursor:cell;
+}
 </style>

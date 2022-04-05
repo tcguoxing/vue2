@@ -22,12 +22,15 @@ export default {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background-color: rgb(250, 250, 250);
+  display: flex;
+  justify-content: center;
   /* text-align: center; */
   /* color: #2c3e50; */
   /* margin-top: 60px;
   margin-left: 1%;
   margin-right: 1%; */
-  height: 100%;
-  width: 100%;
+  height: 100vh;
+  width: 100vw;
 }
 </style>
