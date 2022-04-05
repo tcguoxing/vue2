@@ -7,19 +7,33 @@
       <div class="rightPart">
         <div class="upper">
           <img src="../../assets/Photoshow.png" />
-          <div class="acountClass roundClass">
+          <div class="acountClass roundClass borderClass">
             <label>手机号、账号或邮箱</label>
             <input id="idInput" type="text" v-model="id" />
           </div>
-          <div class="pwdClass roundClass">
+          <div class="pwdClass roundClass borderClass">
             <div>
               <label>密码</label>
               <input type="password" v-model="password" />
             </div>
-            <span @click="showPwd">显示</span>
+            <div>
+              <span v-if="pwdHidden" @click="showPwd">显示</span>
+              <span v-else @click="showPwd">隐藏</span>
+            </div>
           </div>
-          <button @click="login">登录</button>
-          <span>----------------或------------------</span>
+          <button @click="login" >登录</button>
+          <div class="divideLine roundClass">
+            <div></div>
+            <span>或</span>
+            <div></div>
+          </div>
+          <div class="roundClass linkClass" >
+            <img src="../../assets/sample/logo/wechat.png" alt="">
+            <a href="https://wx.qq.com/" >使用微信登录</a>
+          </div>
+          <div class="forgetClass">
+            <a href="https://wx.qq.com/">忘记密码了？</a>
+          </div>
         </div>
         <div class="middle"></div>
         <div class="download"></div>
@@ -63,6 +77,7 @@ export default {
     return {
       id: "tcguoxing",
       password: "********",
+      pwdHidden: true,
     };
   },
   methods: {
@@ -85,7 +100,7 @@ export default {
       alert("comming soon");
     },
     showPwd() {
-      alert("show the password");
+      this.pwdHidden = !this.pwdHidden;
     },
   },
 };
@@ -131,10 +146,32 @@ input {
   font-size: x-small;
   width: 14vw;
   display: flex;
-  background: rgb(232, 240, 254);
+}
+.borderClass {
   border: 1px solid rgb(129, 129, 129);
+  background: rgb(232, 240, 254);
   border-radius: 3px;
   padding: 2px 0;
+}
+.linkClass {
+  height: 2vh ;
+  justify-content: center;
+  align-items: stretch;
+  img {
+    width: 2vh !important;
+    margin: 0 1vh;
+  }
+  a {
+    text-decoration: none;
+    font-weight: 700;
+    cursor: pointer;
+  }
+}
+.forgetClass {
+  font-size: xx-small;
+  font-weight: 100 !important;
+  color: rgb(0, 55, 107);
+  text-decoration: none !important;
 }
 .rightPart {
   width: 45%;
@@ -152,6 +189,30 @@ input {
     flex-direction: column;
     justify-content: space-around;
     align-items: center;
+    .divideLine {
+      display: flex;
+      width: 14vw;
+      flex-basis: row;
+      justify-content: space-between;
+      align-items: center;
+      color: rgb(142, 142, 142);
+      div {
+        background: rgb(219, 219, 219);
+        height: 1px;
+        width: 40%;
+      }
+    }
+    button {
+      width: 14vw;
+      color: white;
+      font-weight: 700;
+      cursor: pointer;
+      background: orange;
+      padding: 0.25vw;
+      border-width: 0;
+      border-radius: 5px;
+
+    }
     img {
       width: 10vw;
       height: auto;
@@ -161,27 +222,38 @@ input {
         margin-left: 0.3vw;
         height: 2vh;
       }
+    label {
+      color: rgb(129, 129, 129);
+    }
+    input:focus-visible {
+      border-width: 0 !important;
+    }
     .acountClass {
       flex-direction: column;
     }
     .pwdClass {
       flex-direction: row;
-      align-items: center;
+      align-items: stretch;
       justify-content: space-between;
       div {
         display: flex;
+        width: 83.3%;
         flex-direction: column;
       }
-      span {
-        font-size: 1.5vh;
-        font-weight: 700;
-        width: 2vw;
+      div:nth-child(2) {
+        display: flex;
+        width: 16.6%;
         height: 100%;
-        background-color: blueviolet;
-        cursor: pointer;
-        align-content: stretch;
-        // align-self: center;
-        background: rgb(250, 250, 250);
+        background-color: rgb(250, 250, 250);
+        align-items: center;
+        justify-content: center;
+        span {
+          font-size: 1.5vh;
+          font-weight: 700;
+          cursor: pointer;
+          align-self: center;
+          background: transparent;
+        }
       }
     }
 
