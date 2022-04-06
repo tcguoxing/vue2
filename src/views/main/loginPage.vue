@@ -2,11 +2,19 @@
   <div class="main">
     <div class="body">
       <div class="leftPart">
-        <img src="../../imgs/zhouguanyu.png" alt="从Instagram上爬取的图片" />
+        <div id="phoneCartoon" class="mainDiv">
+          <div subDiv >
+            <img animateImg one src="@/assets/sample/loginPage/first.png" alt/>
+            <img animateImg two src="@/assets/sample/loginPage/second.png" alt/>
+            <img animateImg three src="@/assets/sample/loginPage/third.png" alt/>
+            <img animateImg four src="@/assets/sample/loginPage/forth.png" alt/>
+          </div>
+        </div>
+        <!-- <img src="../../imgs/zhouguanyu.png" alt="从Instagram上爬取的图片" /> -->
       </div>
       <div class="rightPart">
         <div class="upper">
-          <img src="../../assets/Photoshow.png" />
+          <img  thisImg src="../../assets/Photoshow.png" />
           <div class="acountClass roundClass borderClass">
             <label>手机号、账号或邮箱</label>
             <input id="idInput" type="text" v-model="id" />
@@ -35,8 +43,17 @@
             <a href="https://wx.qq.com/">忘记密码了？</a>
           </div>
         </div>
-        <div class="middle"></div>
-        <div class="download"></div>
+        <div class="middle">
+          <span>没有账户?</span>
+          <a href="https://www.baidu.com/" >注册</a>
+        </div>
+        <div class="down">
+          <span>下载应用</span>
+          <div>
+            <img src="@/assets/sample/logo/AppStore.png" />
+            <img src="@/assets/sample/logo/GooglePlay.png" />
+          </div>
+        </div>
       </div>
     </div>
     <div class="footer">
@@ -105,7 +122,7 @@ export default {
   },
 };
 </script>
-<style lang="less" scoped>
+<style lang="less"  scoped>
 .main {
   align-self: center;
   display: flex;
@@ -114,12 +131,12 @@ export default {
   align-items: center;
   background-color: aqua;
   width: 60vw;
-  height: 90vh;
+  height: 80vh;
 }
 .body {
   width: 40vw;
-  height: 55vh;
-  margin-top: 10vh;
+  height: 65vh;
+  margin-top: 0vh;
   align-self: center;
   background: beige !important;
   display: flex;
@@ -131,13 +148,87 @@ export default {
   display: inline-block;
   width: 45%;
   height: 100%;
-  img {
-    border: 2px solid lightgrey;
-    border-radius: 1vh;
-    width: 100%;
-    height: 100%;
+  .mainDiv {
+    background-image: url(../../assets/sample/loginPage/base.png);
+    background-size: 468.32px 634.15px;
+    background-position: -46px 0;
+    align-self: center;
+    div[subDiv] {
+      position: relative;
+    }
+    img[animateImg] {
+      height: 538.84px;
+      left: 0;
+      position: absolute;
+      top: 0;
+      opacity: 0;
+      visibility: visible;
+      width: 250px;
+      &[one] {
+        opacity: 1;
+        animation-name: fadeOut, fadeIn;
+        animation-duration: 1.5s, 1.5s;
+        animation-delay: 3s, 16.5s;
+        animation-iteration-count: infinite, infinite;
+      }
+      // &[two] {
+      //   opacity: 0;
+      //   animation-name: hiddenDiv, fadeIn, showDiv, fadeOut, hiddenDiv;
+      //   animation-duration: 3s, 1.5s, 3s, 1.5s, 9s;
+      //   animation-iteration-count: infinite, infinite, infinite, infinite, infinite;
+      // }
+      // &[three] {
+      //   opacity: 0;
+      //   animation-name: hiddenDiv, fadeIn, showDiv, fadeOut, hiddenDiv;
+      //   animation-duration: 7.5s, 1.5s, 3s, 1.5s, 4.5s;
+      //   animation-iteration-count: infinite, infinite, infinite, infinite, infinite;
+      // }
+      // &[four] {
+      //   opacity: 0;
+      //   animation-name: hiddenDiv, fadeIn, showDiv, fadeOut;
+      //   animation-duration: 12s, 1.5s, 3s, 1.5s;
+      //   animation-iteration-count: infinite, infinite, infinite, infinite;
+      // }
+    }
+    // img[animateImg]
+    // img[animateImg]
+    
+    @keyframes fadeOut {
+      from {opacity: 1; z-index: 999;}
+      to {opacity: 0; z-index: 1;}
+    }
+    @keyframes showDiv {
+      from { opacity: 1; z-index: 999; }
+      to{ opacity: 1; z-index: 999;}
+    }
+    @keyframes hiddenDiv {
+      from {opacity: 0; z-index: 1;}
+      to {opacity: 0; z-index: 1;}
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; z-index: 1;}
+      to {opacity: 1; z-index: 999;}
+    }
+    .from {
+      opacity: 0;
+      -webkit-transition: opacity 1.5s ease-out;
+      transition: opacity 1.5s ease-out;
+      visibility: visible;
+    }
+    .to { 
+      opacity: 1;
+      -webkit-transition: opacity 1.5s ease-in;
+      transition: opacity 1.5s ease-in;
+      z-index: 2;
+    }
   }
 }
+  // img {
+  //   border: 2px solid lightgrey;
+  //   border-radius: 1vh;
+  //   width: 100%;
+  //   height: 100%;
+  // }
 input {
   border-width: 0;
   background: transparent;
@@ -153,25 +244,13 @@ input {
   border-radius: 3px;
   padding: 2px 0;
 }
-.linkClass {
-  height: 2vh ;
-  justify-content: center;
-  align-items: stretch;
-  img {
-    width: 2vh !important;
-    margin: 0 1vh;
-  }
-  a {
-    text-decoration: none;
-    font-weight: 700;
-    cursor: pointer;
-  }
-}
 .forgetClass {
   font-size: xx-small;
   font-weight: 100 !important;
   color: rgb(0, 55, 107);
-  text-decoration: none !important;
+  a {
+    text-decoration: none;
+  }
 }
 .rightPart {
   width: 45%;
@@ -184,7 +263,7 @@ input {
     width: 100%;
     background: white;
     border: 1px solid lightgray;
-    height: 70%;
+    height: 60%;
     display: flex;
     flex-direction: column;
     justify-content: space-around;
@@ -211,17 +290,31 @@ input {
       padding: 0.25vw;
       border-width: 0;
       border-radius: 5px;
-
     }
-    img {
-      width: 10vw;
-      height: auto;
+
+    img[thisImg] {
+      height: 6vh;
+      margin: 1vh 0vh;
+    }
+    .linkClass {
+      height: 2vh;
+      justify-content: center;
+      align-items: stretch;
+        img {
+        width: 2vh !important;
+        margin: 0 1vh;
+      }
+      a {
+        text-decoration: none;
+        font-weight: 700;
+        cursor: pointer;
+      }
     }
     label,
-      input {
-        margin-left: 0.3vw;
-        height: 2vh;
-      }
+    input {
+      margin-left: 0.3vw;
+      height: 2vh;
+    }
     label {
       color: rgb(129, 129, 129);
     }
@@ -278,9 +371,46 @@ input {
       }
     }
   }
+  .middle {
+    width: 100%;
+    height: 13%;
+    border: 1px solid lightgray;
+    background: white;
+    display: flex; 
+    justify-content: center;
+    align-items: center;
+    * {
+      margin: 0 1%;
+    }
+    a {
+      text-decoration: none;
+      color: rgb(39, 134, 245);
+      font-weight: 600;
+    }
+  }
+  .down {
+    height: 15%;
+    width: 100%;
+    margin: 2vh 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    div {
+      display: flex;
+      margin: 2vh 0;
+      width: auto;
+      justify-content: center;
+      align-items: center;
+      * {
+        width: 43%;
+        margin: 1vh;
+      }
+    }
+  }
 }
 .footer {
-  font-size: smaller;
+  font-size: 12px;
   color: rgb(129, 129, 129);
   height: 8vh;
   width: 30vw;
@@ -310,4 +440,6 @@ input {
     }
   }
 }
+
+
 </style>

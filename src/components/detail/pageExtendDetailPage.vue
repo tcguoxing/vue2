@@ -8,7 +8,6 @@
 </template>
 <script>
 import detailPage from './detailPage.vue' 
-import CommonTools from '@/static/commonTools.js'
 function makeHappy() {
     alert('yes, im happy', arguments)
     console.log('yes, im happy', arguments[0])
@@ -19,7 +18,6 @@ const extendComponent = {
     methods: {
         showThisInfo(data) {
             // alert('this img alt is: ' + data + '加新的')
-            console.log('CommonTools: ', CommonTools.deepCopy('this info'));
             // let copy = CommonTools.deepCopy(this)
             extendPage.methods.pleaseGiveMeInfoFromThis(extendPage, this.detailPageInfo)
         },

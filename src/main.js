@@ -4,10 +4,6 @@ import App from './App.vue'
 import element, { MessageBox } from 'element-ui'
 import router from '@/router/index.js'
 import lazyLog from '@/utils/lazyLog.js'
-import { deepCopy, getQueryParam, getAllQueryParams } from '@/static/commonTools.js'
-import commonTools from '@/static/commonTools.js'
-// const { ElMessageBoxComponent } = require('@/../node_modules/element-ui/types/message-box.d.ts') 
-// import { ElMessageBoxComponent } from '@/../node_modules/element-ui/types/message-box.d.ts'
 
 // extends中注释掉了 "eslint:recommended"，为了调试顺利。上边这行可以把整个文件的错误忽略掉。
 
@@ -24,8 +20,6 @@ Vue.prototype.$message = element.Message
 Vue.prototype.$notification = element.Notification
 Vue.prototype.$confirm = element.MessageBox.confirm
 Vue.prototype.$log = lazyLog
-Vue.CommonTools = commonTools
-// var CommonTools = commonTools
 
 
 new Vue({
