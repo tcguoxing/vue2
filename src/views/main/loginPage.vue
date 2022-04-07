@@ -129,7 +129,6 @@ export default {
   flex-direction: column;
   justify-content: space-between;
   align-items: center;
-  background-color: aqua;
   width: 60vw;
   height: 80vh;
 }
@@ -138,7 +137,6 @@ export default {
   height: 65vh;
   margin-top: 0vh;
   align-self: center;
-  background: beige !important;
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -148,13 +146,19 @@ export default {
   display: inline-block;
   width: 45%;
   height: 100%;
+  margin-right: 8%;
   .mainDiv {
     background-image: url(../../assets/sample/loginPage/base.png);
     background-size: 468.32px 634.15px;
+    height: 634.15px;
+    width: 468.32px;
     background-position: -46px 0;
+    z-index: 100;
     align-self: center;
     div[subDiv] {
       position: relative;
+      top: 25px;
+      left: 112px;
     }
     img[animateImg] {
       height: 538.84px;
@@ -165,70 +169,78 @@ export default {
       visibility: visible;
       width: 250px;
       &[one] {
-        opacity: 1;
-        animation-name: fadeOut, fadeIn;
-        animation-duration: 1.5s, 1.5s;
-        animation-delay: 3s, 16.5s;
-        animation-iteration-count: infinite, infinite;
+        animation-name: oneAnimation;
+        animation-duration: 18s;
+        animation-iteration-count: infinite;
       }
-      // &[two] {
-      //   opacity: 0;
-      //   animation-name: hiddenDiv, fadeIn, showDiv, fadeOut, hiddenDiv;
-      //   animation-duration: 3s, 1.5s, 3s, 1.5s, 9s;
-      //   animation-iteration-count: infinite, infinite, infinite, infinite, infinite;
-      // }
-      // &[three] {
-      //   opacity: 0;
-      //   animation-name: hiddenDiv, fadeIn, showDiv, fadeOut, hiddenDiv;
-      //   animation-duration: 7.5s, 1.5s, 3s, 1.5s, 4.5s;
-      //   animation-iteration-count: infinite, infinite, infinite, infinite, infinite;
-      // }
-      // &[four] {
-      //   opacity: 0;
-      //   animation-name: hiddenDiv, fadeIn, showDiv, fadeOut;
-      //   animation-duration: 12s, 1.5s, 3s, 1.5s;
-      //   animation-iteration-count: infinite, infinite, infinite, infinite;
-      // }
+      &[two] {
+        animation-name: twoAnimation;
+        animation-duration: 18s;
+        animation-iteration-count: infinite;
+      }
+      &[three] {
+        animation-name: threeAnimation;
+        animation-duration: 18s;
+        animation-iteration-count: infinite;
+      }
+      &[four] {
+        animation-name: fourAnimation;
+        animation-duration: 18s;
+        animation-iteration-count: infinite;
+      }
     }
     // img[animateImg]
     // img[animateImg]
-    
-    @keyframes fadeOut {
-      from {opacity: 1; z-index: 999;}
-      to {opacity: 0; z-index: 1;}
+    @keyframes oneAnimation {
+      0% {opacity: 1; z-index: 99;}
+      16.667% {opacity: 1; z-index: inherit;}
+      25% {opacity: 0; z-index: 1; animation-timing-function: ease-in-out;}
+      91.667% {opacity: 0; z-index: 1;}
+      100% {opacity: 1; z-index: 100; animation-timing-function: inherit;}
     }
-    @keyframes showDiv {
-      from { opacity: 1; z-index: 999; }
-      to{ opacity: 1; z-index: 999;}
+    @keyframes twoAnimation {
+      0% {opacity: 0; z-index: 1;}
+      16.667% {opacity: 0; z-index: 1;}
+      25% {opacity: 1; z-index: 100; animation-timing-function: inherit;}
+      41.667% {opacity: 1; z-index: 100;}
+      50% {opacity: 0; z-index: 1; animation-timing-function: inherit;}
+      100% {opacity: 0; z-index: 1;}
     }
-    @keyframes hiddenDiv {
-      from {opacity: 0; z-index: 1;}
-      to {opacity: 0; z-index: 1;}
+    @keyframes threeAnimation {
+      0% {opacity: 0; z-index: 1;}
+      41.667% {opacity: 0; z-index: inherit;}
+      50%{opacity: 1; z-index: 100; animation-timing-function: inherit;}
+      66.667%{opacity: 1; z-index: inherit;}
+      75%{opacity: 0; z-index: 1; animation-timing-function: inherit;}
+      100%{opacity: 0; z-index: inherit;}
     }
-    @keyframes fadeIn {
-      from { opacity: 0; z-index: 1;}
-      to {opacity: 1; z-index: 999;}
+    @keyframes fourAnimation {
+      0%{opacity: 0; z-index: 1;}
+      66.667%{opacity: 0; z-index: inherit;}
+      75%{opacity: 1; z-index: 100; animation-timing-function: ease;}
+      91.667%{opacity: 1;z-index: inherit;}
+      100%{opacity: 0; z-index: 1; animation-timing-function: inherit;}
     }
-    .from {
-      opacity: 0;
-      -webkit-transition: opacity 1.5s ease-out;
-      transition: opacity 1.5s ease-out;
-      visibility: visible;
+    @keyframes totalFade {
+      0% {opacity: 0; z-index: 1;}
+      25% {opacity: 1; z-index: 100;}
+      75% {opacity: 1; z-index: 100;}
+      100% {opacity: 0; z-index: 1;}
     }
-    .to { 
-      opacity: 1;
-      -webkit-transition: opacity 1.5s ease-in;
-      transition: opacity 1.5s ease-in;
-      z-index: 2;
-    }
+    // .from {
+    //   opacity: 0;
+    //   -webkit-transition: opacity 1.5s ease-out;
+    //   transition: opacity 1.5s ease-out;
+    //   visibility: visible;
+    // }
+    // .to { 
+    //   opacity: 1;
+    //   -webkit-transition: opacity 1.5s ease-in;
+    //   transition: opacity 1.5s ease-in;
+    //   z-index: 2;
+    // }
   }
 }
-  // img {
-  //   border: 2px solid lightgrey;
-  //   border-radius: 1vh;
-  //   width: 100%;
-  //   height: 100%;
-  // }
 input {
   border-width: 0;
   background: transparent;
@@ -440,6 +452,4 @@ input {
     }
   }
 }
-
-
 </style>
