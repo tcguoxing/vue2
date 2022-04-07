@@ -7,7 +7,7 @@
             <img animateImg one src="@/assets/sample/loginPage/first.png" alt/>
             <img animateImg two src="@/assets/sample/loginPage/second.png" alt/>
             <img animateImg three src="@/assets/sample/loginPage/third.png" alt/>
-            <img animateImg four src="@/assets/sample/loginPage/forth.png" alt/>
+            <img animateImg four src="@/assets/sample/loginPage/fourth.png" alt/>
           </div>
         </div>
         <!-- <img src="../../imgs/zhouguanyu.png" alt="从Instagram上爬取的图片" /> -->
@@ -192,19 +192,19 @@ export default {
     // img[animateImg]
     // img[animateImg]
     @keyframes oneAnimation {
-      0% {opacity: 1; z-index: 99;}
+      0% {opacity: 1; z-index: 100;}
       16.667% {opacity: 1; z-index: inherit;}
       25% {opacity: 0; z-index: 1; animation-timing-function: ease-in-out;}
-      91.667% {opacity: 0; z-index: 1;}
+      91.667% {opacity: 0; z-index: inherit;}
       100% {opacity: 1; z-index: 100; animation-timing-function: inherit;}
     }
     @keyframes twoAnimation {
       0% {opacity: 0; z-index: 1;}
-      16.667% {opacity: 0; z-index: 1;}
+      16.667% {opacity: 0; z-index: inherit;}
       25% {opacity: 1; z-index: 100; animation-timing-function: inherit;}
-      41.667% {opacity: 1; z-index: 100;}
+      41.667% {opacity: 1; z-index: inherit;}
       50% {opacity: 0; z-index: 1; animation-timing-function: inherit;}
-      100% {opacity: 0; z-index: 1;}
+      100% {opacity: 0; z-index: inherit;}
     }
     @keyframes threeAnimation {
       0% {opacity: 0; z-index: 1;}
@@ -217,7 +217,7 @@ export default {
     @keyframes fourAnimation {
       0%{opacity: 0; z-index: 1;}
       66.667%{opacity: 0; z-index: inherit;}
-      75%{opacity: 1; z-index: 100; animation-timing-function: ease;}
+      75%{opacity: 1; z-index: 100; animation-timing-function: inherit;}
       91.667%{opacity: 1;z-index: inherit;}
       100%{opacity: 0; z-index: 1; animation-timing-function: inherit;}
     }
