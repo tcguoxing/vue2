@@ -1,9 +1,22 @@
 <template>
     <div calss="wrapper">
-        <div>
-            <button @click="returnBack">返回</button>
+        <div header>
+            <img>
+            <div search>
+
+            </div>
+            <div userInfo>
+                <img home />
+                <img nav />
+                <img create />
+                <img compass />
+                <img favorite />
+                <img mine />
+            </div>
         </div>
-        <span>{{name}}，欢迎来到登录页面</span>
+        <div body>
+
+        </div>
     </div>
 </template>
 <script>
@@ -29,5 +42,14 @@ export default {
         width: 100%;
         height: 100%;
         background: gray;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    div[header] {
+        width: 100%;
+        height: 8%;
+        background: white;
+        display: flex;
     }
 </style>
