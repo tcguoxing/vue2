@@ -1,0 +1,10 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`table测试 快照样式 1`] = `
+"<el-table data=\\"[object Object],[object Object],[object Object]\\" stripe=\\"\\" border=\\"\\">
+  <el-table-column prop=\\"tian\\"></el-table-column>
+  <el-table-column prop=\\"gan\\"></el-table-column>
+  <el-table-column prop=\\"di\\"></el-table-column>
+  <el-table-column prop=\\"zhi\\"></el-table-column>
+</el-table>"
+`;
