@@ -1,5 +1,12 @@
 # vue2_program
 
+## Project Introduction
+
+Zis is one vue2 + vite program and its prototype is Instagram. The branch of result is Photoshow.
+
+
+
+
 ## Project setup
 ```
 npm install
@@ -18,6 +25,11 @@ npm run build
 ### Lints and fixes files
 ```
 npm run lint
+```
+
+### Main page
+```
+git checkout Photoshow
 ```
 
 ### Customize configuration
