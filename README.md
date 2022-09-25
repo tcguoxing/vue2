@@ -4,8 +4,7 @@
 
 Zis is one vue2 + vite program and its prototype is Instagram. The branch of result is Photoshow.
 
-<https://github.com/tcguoxing/vue2/blob/master/demonstration.gif>
-
+![image](https://github.com/tcguoxing/vue2/blob/master/demonstration.gif)
 
 ## Project setup
 ```
